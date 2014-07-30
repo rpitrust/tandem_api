@@ -1,0 +1,14 @@
+-e git+https://github.com/django/django.git@c33447a50c1b0a96c6e2261f7c45d2522a3fe28d#egg=Django-master
+Markdown==2.4.1
+Unipath==1.0
+argparse==1.2.1
+django-cors-headers==0.12
+django-devserver==0.8.0
+django-dotenv==1.2
+django-filter==0.7
+django-getenv==1.3.1
+djangorestframework==2.3.14
+psycopg2==2.5.3
+six==1.7.2
+sqlparse==0.1.11
+wsgiref==0.1.2
