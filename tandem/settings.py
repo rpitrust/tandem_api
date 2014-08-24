@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'devserver',
     'django_extensions',
+    'django_cron',
     'corsheaders',
     'profiles',
     'simulations'
@@ -89,6 +90,10 @@ DATABASES = {
 REST_FRAMEWORK = {
     'PAGINATE_BY': 20
 }
+
+CRON_CLASSES = [
+    "simulations.cron_jobs.CommPerSACronJob",
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
