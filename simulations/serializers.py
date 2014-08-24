@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Simresults
+from .models import SimresultsSingle
 
 
 class DynamicFieldsModelSerializer(serializers.ModelSerializer):
@@ -28,7 +28,7 @@ class DynamicFieldsModelSerializer(serializers.ModelSerializer):
 class SimresultSerializer(DynamicFieldsModelSerializer):
     """Serializes a Simresult object"""
     class Meta:
-        model = Simresults
+        model = SimresultsSingle
         fields = ('caseid', 'graphtype', 'radius', 'numagents', 'numtrials',
                   'agent_per_fact', 'fact', 'noise', 'competence',
                   'willingness', 'spammer', 'selfish', 'trust_used',
