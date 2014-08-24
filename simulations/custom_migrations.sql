@@ -1,0 +1,24 @@
+ALTER TABLE "public"."sim_one_raw_single" ADD COLUMN "id" SERIAL;
+ALTER TABLE "public"."sim_one_raw_single" ADD PRIMARY KEY ("id");
+
+ALTER TABLE "public"."sim_all_raw_single" ADD COLUMN "id" SERIAL;
+ALTER TABLE "public"."sim_all_raw_single" ADD PRIMARY KEY ("id");
+
+ALTER TABLE "public"."sim_all" ADD COLUMN "id" SERIAL;
+ALTER TABLE "public"."sim_all" ADD PRIMARY KEY ("id");
+
+ALTER TABLE "public"."sim_all_raw" ADD COLUMN "id" SERIAL;
+ALTER TABLE "public"."sim_all_raw" ADD PRIMARY KEY ("id");
+
+ALTER TABLE "public"."sim_one" ADD COLUMN "id" SERIAL;
+ALTER TABLE "public"."sim_one" ADD PRIMARY KEY ("id");
+
+ALTER TABLE "public"."sim_one_raw" ADD COLUMN "id" SERIAL;
+ALTER TABLE "public"."sim_one_raw" ADD PRIMARY KEY ("id");
+
+ALTER TABLE "public"."sim_all" ADD FOREIGN KEY (caseid) REFERENCES simresults ON UPDATE CASCADE ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "public"."sim_all_raw" ADD FOREIGN KEY (caseid) REFERENCES simresults ON UPDATE CASCADE ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "public"."sim_one" ADD FOREIGN KEY (caseid) REFERENCES simresults ON UPDATE CASCADE ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "public"."sim_one_raw" ADD FOREIGN KEY (caseid) REFERENCES simresults ON UPDATE CASCADE ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "public"."sim_all_raw_single" ADD FOREIGN KEY (caseid) REFERENCES simresults_single ON UPDATE CASCADE ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "public"."sim_one_raw_single" ADD FOREIGN KEY (caseid) REFERENCES simresults_single ON UPDATE CASCADE ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED;
