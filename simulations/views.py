@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.http import HttpResponseForbidden, HttpResponseBadRequest
 import json
 from rest_framework import viewsets
-from .models import Simresults
+from .models import Simresults, SimresultsSingle, Graph
 from .serializers import *
 
 
@@ -10,7 +10,7 @@ class SimresultViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides `list` and `detail` actions.
     """
-    queryset = Simresults.objects.all()
+    queryset = SimresultsSingle.objects.all()
     serializer_class = SimresultSerializer
     paginate_by = None
 
@@ -49,5 +49,12 @@ def noise_vs_x(request):
         results_hash[result_dict[plot_factor]]['agf'][str(result_dict['agent_per_fact'])][result_dict['noise']] = result_dict[plot_y_axis]
 
     results_arr.append(results_hash)
+    return HttpResponse(json.dumps({'results': results_arr}),
+                        content_type='application/json')
+
+def comm_per_sa(request):
+    results_arr = []
+    results_hash = Graph.objects.filter(name='comm_per_sa')[0]
+    results_arr.append(results_hash.__dict__['data'][0])
     return HttpResponse(json.dumps({'results': results_arr}),
                         content_type='application/json')
